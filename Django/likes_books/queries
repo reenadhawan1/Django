@@ -1,0 +1,30 @@
+from apps.likes.models import *
+
+user1 = User(first_name = 'Daniel', last_name = 'Brown', email = 'DB@email.com')
+user2 = User(first_name = 'Jacob', last_name = 'Brown', email = 'JB@email.com')
+user3 = User(first_name = 'Edward', last_name = 'Brown', email = 'EB@email.com')
+
+book1 = Book(name = 'adventures', desc ='adv stuff', uploader = user1)
+book2 = Book(name = 'mystery', desc ='mystery stuff', uploader = user1)
+
+book4 = Book(name = 'horror', desc ='horror stuff', uploader = user2)
+book5 = Book(name = 'suspense', desc ='suspense stuff', uploader = user2)
+
+book6 = Book(name = 'action', desc ='action stuff', uploader = user3)
+book7 = Book(name = 'romance', desc ='romance stuff', uploader = user3)
+
+User.objects.first().liked_books.add(Book.objects.first())
+User.objects.first().liked_books.add(Book.objects.last())
+
+User.objects.get(id = 2).liked_books.add(Book.objects.first())
+User.objects.get(id = 2).liked_books.add(Book.objects.get(id=3))
+
+User.objects.last().liked_books = Book.objects.all()
+
+Book.objects.first().liked_by.all()
+
+Book.objects.first().uploader
+
+Book.objects.get(id=2).liked_by.all()
+
+Book.objects.get(id=2).uploader

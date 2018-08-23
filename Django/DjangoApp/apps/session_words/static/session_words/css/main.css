@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: 0pz;
+}
+.lefthand{
+    border-right: 3px solid black;
+}
+.radio{
+    margin-left: 10px;
+}
+.activity p {
+    display: block;
+}
+.activity{
+    height: 300px;
+}
+.blue{
+    color: blue;
+}
+.red{
+    color: red;
+}
+.green{
+    color: limegreen;
+}
+.showbig{
+    font-size: 25px;
+}

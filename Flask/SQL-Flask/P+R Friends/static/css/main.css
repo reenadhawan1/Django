@@ -1,0 +1,10 @@
+*{
+    margin: 0px;
+    padding: 0pz;
+}
+.friends{
+    border-bottom: 3px solid black;
+}
+.friends p{
+    display: block;
+}

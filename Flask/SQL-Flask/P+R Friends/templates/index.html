@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/main.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }} "></script>
+</head>
+<body>
+    <div class="container">
+        <h1>These are all my friends</h1>
+        {% for i in friends %}
+            <div class="friends row">
+                <div class="col-6">
+                    <p>First name: {{i['first_name']}} </p>
+                    <p>Last name: {{i['last_name']}} </p>
+                    <p>Ocupation: {{i['occupation']}} </p>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-6">
+                <form action="/add" method="POST">
+                    <div class="form-group">
+                    <label for="">First name:</label>
+                    <input type="text"
+                        class="form-control" name="first_name" id="" aria-describedby="helpId" placeholder="">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Last name:</label>
+                    <input type="text"
+                        class="form-control" name="last_name" id="" aria-describedby="helpId" placeholder="">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Occupation:</label>
+                    <input type="text"
+                        class="form-control" name="occupation" id="" aria-describedby="helpId" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

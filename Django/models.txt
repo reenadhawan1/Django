@@ -1,0 +1,13 @@
+from apps.user_login.models import User
+
+User.objects.create(first_name='dan',last_name='brown',email_adress='DB@email.com',age=31)
+
+User.objects.first()
+
+User.objects.order_by("first_name")
+
+b = User.objects.get(id=1)
+last_name = 'himself'
+b.save()
+
+User.objects.get(id=2).delete()

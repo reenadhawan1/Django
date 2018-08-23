@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'book_reviews/css/main.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    {% load static %}
+    <script type="text/javascript" src="{% static 'book_reviews/js/main.js' %} "></script>
+</head>
+<body>
+    <div class="container">
+        <div class=" top-row row">
+            <div class="col-md-6">
+                <h4>Welcome, {{request.session.name}}</h4>
+            </div>
+            <nav class="nav col-md-6 justify-content-end">
+                <a class="nav-link" href="add/">Add Book and Review</a>
+                <a class="nav-link" href="#">Logout</a>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h6>Recent Book Reviews:</h6>
+            </div>
+            <div class="col-md-4">
+                <h6>Other books with Reviews</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {%for review in reviews%}
+                <ul class="list-unstyled">
+                    <li><a href="#">{{review.book.name}}</a></li>
+                    <li>
+                        <ul class="list-unstyled">
+                            <li>Rating: {{review.rating}}/5</li>
+                            <li><a href="#">{{review.user.alias}} </a>says: {{review.review}}</li>
+                            <li>{{review.created_at}}</li>
+                        </ul>
+                    </li>
+                </ul>
+                {%endfor%}
+            </div>
+            <div class="col-md-4 books-with-reviews">
+                {%for book in books%}
+                <a href="#">{{book.name}}</a>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

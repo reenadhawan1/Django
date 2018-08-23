@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0pz;
+}
+.register{
+    border: 2px solid black;
+}
+.login{
+    border: 2px solid black;
+}
+.top-row{
+    height: 55px;
+}
+ul ul{
+    margin-left: 25px;
+}
+ul ul li{
+    margin-top: 10px;
+}
+a{
+    text-decoration: underline
+}
+.books-with-reviews{
+    border: 2px solid black;
+    height: 300px;
+    overflow: scroll;
+
+}
+.books-with-reviews a{
+    display: block;
+    margin: 10px;
+}
